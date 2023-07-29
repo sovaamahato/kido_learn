@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kido_learn/screen/splash_screen.dart';
 
 import 'screen/home_page.dart';
 
@@ -12,6 +13,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(debugShowCheckedModeBanner: false,
-    home: HomePage(),);
+    home: SplashScreen(),);
   }
 }
