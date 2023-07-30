@@ -14,9 +14,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(milliseconds: 2000),(){
+    Future.delayed(const Duration(milliseconds: 2000),(){
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
-        return HomePage();
+        return const HomePage();
       }));
     });
   }
