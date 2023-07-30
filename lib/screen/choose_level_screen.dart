@@ -6,6 +6,6 @@ class ChooseLevelScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: Text("chhose level"),),);
+      body: Center(child: Text("choose level"),),);
   }
 }
