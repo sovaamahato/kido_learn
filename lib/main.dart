@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kido_learn/screen/choose_level_screen.dart';
 import 'package:kido_learn/screen/splash_screen.dart';
 
+import 'screen/level_1_screen.dart';
+
 
 
 void main() {
