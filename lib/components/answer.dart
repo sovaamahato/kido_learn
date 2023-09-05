@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 class Answer extends StatefulWidget {
   // const Answer({Key? key}) : super(key: key);
-  final VoidCallback selectAnswer;
-  final String answerText;
+   VoidCallback selectAnswer;
+  var answerText;
 
-  const Answer(this.selectAnswer, this.answerText);
+   Answer(this.selectAnswer, this.answerText);
 
   @override
   State<Answer> createState() => _AnswerState();
@@ -27,6 +27,7 @@ class _AnswerState extends State<Answer> {
  void _startMoving() {
     const duration = Duration(seconds: 2); // The duration for each animation.
     Timer.periodic(duration, (timer) {
+      
       setState(() {
         _moveRight = !_moveRight; // Toggle the direction for the next animation.
       });
