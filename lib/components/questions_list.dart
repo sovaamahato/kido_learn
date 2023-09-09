@@ -15,11 +15,11 @@ List<QuestionModel> questions=[
     "Blue":true,
     "pink":false
   }),
-  QuestionModel("What is the color of sky?",{
-    "Red":false,
-    "yellow":false,
-    "Blue":true,
-    "pink":false
+  QuestionModel("How many letters are thre in A to Z?",{
+    "23":false,
+    "30":false,
+    "40":false,
+    "26":true
   }),
   QuestionModel("What is the color of sky?",{
     "Red":false,

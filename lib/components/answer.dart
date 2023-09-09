@@ -6,8 +6,9 @@ class Answer extends StatefulWidget {
   // const Answer({Key? key}) : super(key: key);
    VoidCallback selectAnswer;
   var answerText;
+  Color btnColor;
 
-   Answer(this.selectAnswer, this.answerText);
+   Answer(this.selectAnswer, this.answerText, this.btnColor);
 
   @override
   State<Answer> createState() => _AnswerState();
@@ -44,12 +45,13 @@ class _AnswerState extends State<Answer> {
           tween: Tween<double>(begin: 0, 
           end: _moveRight ? _movementDistance : 0),
           builder: (BuildContext context, double value, Widget? child) {
+           
             return Transform.translate(
               offset: Offset(value, 0),
         child: Container(
           padding: EdgeInsets.all(10),
           width: double.infinity,
-          decoration: BoxDecoration(color: Colors.orange,
+          decoration: BoxDecoration(color: widget.btnColor,
           borderRadius: BorderRadius.circular(14)),
           child: Center(child: Text(widget.answerText,style: TextStyle(fontSize: 20),)),
           
