@@ -60,12 +60,15 @@ class _Level1ScreenState extends State<Level1Screen> {
                     const SizedBox(
                       height: 20,
                     ),
+
+                    const Text("Choose the Correct one",style: TextStyle(fontSize: 25),),
                     //question
-                    Text(
+                    Image.asset(
                       questions[index].question!,
-                      style: TextStyle(color: Colors.blue),
+                      height: 80,
+                      
                     ),
-//buttons for answer linst
+                //buttons for answer linst
 
                     for (int i = 0; i < questions[index].answer!.length; i++)
                       Answer(
