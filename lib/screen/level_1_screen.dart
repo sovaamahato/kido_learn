@@ -16,8 +16,6 @@ class Level1Screen extends StatefulWidget {
 class _Level1ScreenState extends State<Level1Screen> {
   var _questionIndex = 0;
 
-  
-
   PageController? _controller = PageController(initialPage: 0);
   //setting game variables
   bool isPressed = false;
@@ -30,15 +28,15 @@ class _Level1ScreenState extends State<Level1Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFF252c4a),
+        backgroundColor:Colors.pink[100],
         body: Padding(
             padding: const EdgeInsets.all(18),
             child: PageView.builder(
               physics: const NeverScrollableScrollPhysics(),
               controller: _controller,
-              onPageChanged: (page){
+              onPageChanged: (page) {
                 setState(() {
-                  isPressed=false;
+                  isPressed = false;
                 });
               },
               itemCount: questions.length,
@@ -47,35 +45,38 @@ class _Level1ScreenState extends State<Level1Screen> {
                   children: [
                     Text(
                       "Question ${index + 1}/${questions.length}",
-                      style: const TextStyle(
-                          color: Colors.deepPurple,
+                      style: GoogleFonts.actor(
+                          color: Color.fromARGB(255, 136, 91, 214),
                           fontSize: 25,
                           fontWeight: FontWeight.bold),
                     ),
-                    Divider(
-                      color: Colors.grey[900],
+
+                    const Divider(
+                      color: Colors.white,
                       height: 8,
-                      thickness: 1,
+                      thickness: 3,
                     ),
                     const SizedBox(
                       height: 20,
                     ),
 
-                    const Text("Choose the Correct one",style: TextStyle(fontSize: 25),),
+                    const Text(
+                      "Choose the Correct one",
+                      style: TextStyle(fontSize: 25,color: Colors.white),
+                    ),
                     //question
                     Image.asset(
                       questions[index].question!,
                       height: 80,
-                      
                     ),
-                //buttons for answer linst
+                    //buttons for answer linst
 
                     for (int i = 0; i < questions[index].answer!.length; i++)
                       Answer(
                           isPressed
                               ? () {}
                               : () {
-                                  print("Presed");
+                                  
                                   setState(() {
                                     isPressed = true;
                                   });
@@ -104,28 +105,32 @@ class _Level1ScreenState extends State<Level1Screen> {
                     ),
 
                     OutlinedButton(
-                        onPressed:isPressed?index+1==questions.length?(){
-                          setState(() {
-                            Navigator.push(context,MaterialPageRoute(builder: (context){
-                            return Result(score);
-                          }));
-                          });
-                          
-                          
-                        }:(){
-                          _controller!.nextPage(duration: Duration(milliseconds: 80), curve: Curves.bounceIn);
-                        }:null,
+                        onPressed: isPressed
+                            ? index + 1 == questions.length
+                                ? () {
+                                    setState(() {
+                                      Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) {
+                                        return Result(score);
+                                      }));
+                                    });
+                                  }
+                                : () {
+                                    _controller!.nextPage(
+                                        duration: Duration(milliseconds: 80),
+                                        curve: Curves.bounceIn);
+                                  }
+                            : null,
                         child: Text(
-                          index+1==questions.length?
-                          "See Results":"Next Questions",
-                          style: const TextStyle(fontSize: 30,color: Colors.white),
+                          index + 1 == questions.length
+                              ? "See Results"
+                              : "Next Questions",
+                          style: const TextStyle(
+                              fontSize: 30, color: Colors.white),
                         ))
                   ],
                 );
               },
-            ))
-
-       
-        );
+            )));
   }
 }

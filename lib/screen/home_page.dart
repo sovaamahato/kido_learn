@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:const Color.fromARGB(255, 148, 193, 245),
+      backgroundColor: const Color.fromARGB(255, 148, 193, 245),
       body: Stack(
         children: [
           Image.asset(
@@ -72,22 +72,27 @@ class _HomePageState extends State<HomePage> {
                               GoogleFonts.acme(fontSize: 40, color: Colors.red),
                         ),
                       )),
-                Positioned(
-                    top: 200,
+                  Positioned(
                     left: 100,
+                    top: 200,
+                   
                     child: GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
                           return const ChooseLevelScreen();
                         }));
                       },
                       child: Container(
+                         
                         padding: const EdgeInsets.all(10),
-                        decoration:
-                            BoxDecoration(borderRadius: BorderRadius.circular(15),color: Color.fromARGB(255, 18, 67, 107)),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: Color.fromARGB(255, 18, 67, 107)),
                         child: Text(
                           "START NOW",
-                          style: GoogleFonts.acme(color: Colors.white,fontSize: 20),
+                          style: GoogleFonts.acme(
+                              color: Colors.white, fontSize: 20),
                         ),
                       ),
                     ),

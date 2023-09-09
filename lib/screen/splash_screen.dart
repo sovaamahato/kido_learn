@@ -28,22 +28,27 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
         //backgroundColor: Color.fromARGB(255, 124, 96, 86),
         body: SingleChildScrollView(
-          child: Column(
-              children: [
-          const SizedBox(height: 40,),
-          Lottie.asset('lib/images/anima.JSON'),
-          const SizedBox(height: 200,),
-          Text("Learning With playing",style: GoogleFonts.acme(fontSize: 26),),
-          const SizedBox(
-            height: 120,
-          ),
-          Lottie.asset('lib/images/butterfly.JSON'),
-          const LinearProgressIndicator(
-                
-                semanticsLabel: 'Linear progress indicator',
-              ),
-              ],
+          child: Padding(
+            padding: const EdgeInsets.only(bottom:18.0),
+            child: Column(
+                children: [
+            const SizedBox(height: 40,),
+            Lottie.asset('lib/images/anima.JSON'),
+            const SizedBox(height: 200,),
+            Text("Learning With playing",style: GoogleFonts.acme(fontSize: 26),),
+            const SizedBox(
+              height: 90,
             ),
+            Lottie.asset('lib/images/butterfly.JSON'),
+            const LinearProgressIndicator(
+                  
+                  semanticsLabel: 'Linear progress indicator',
+                ),
+          
+                
+                ],
+              ),
+          ),
         ));
   }
 }
