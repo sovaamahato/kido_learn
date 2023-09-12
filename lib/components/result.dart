@@ -16,15 +16,14 @@ class Result extends StatefulWidget {
 }
 
 class _ResultState extends State<Result> {
-   final _controller = ConfettiController();
+  final _controller = ConfettiController();
   //bool isPlaying = false;
 
-@override
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _controller.play();
-
   }
 
   @override
@@ -32,13 +31,13 @@ class _ResultState extends State<Result> {
     // TODO: implement dispose
     super.dispose();
 
-
     _controller.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [Scaffold(
+    return Stack(children: [
+      Scaffold(
         backgroundColor: Color.fromARGB(255, 253, 179, 204),
         body: Center(
           child: Padding(
@@ -58,26 +57,29 @@ class _ResultState extends State<Result> {
                       GoogleFonts.actor(fontSize: 40, color: Colors.deepPurple),
                 ),
                 const SizedBox(height: 90),
-                Text("${widget.score}",style:GoogleFonts.actor(fontSize: 90,fontWeight: FontWeight.bold),)
+                const Text("Your score is :"),
+                const SizedBox(height: 20,),
+                Text(
+                  "${widget.score}",
+                  style: GoogleFonts.actor(
+                      fontSize: 90, fontWeight: FontWeight.bold),
+                )
               ],
             ),
           ),
         ),
       ),
       ConfettiWidget(
-          emissionFrequency: 0.05,
-          numberOfParticles: 100,
-          colors:const [
-           Colors.red,
-            Colors.green,
-            Colors.yellow,
-            
-            
-        
-          ]
-          ,confettiController: _controller,
-  ]
-    );
-    
+        emissionFrequency: 0.05,
+        numberOfParticles: 100,
+        colors: const [
+          Colors.red,
+          Colors.green,
+          Colors.yellow,
+        ],
+        confettiController: _controller,
+        blastDirection: pi / 2,
+      )
+    ]);
   }
 }

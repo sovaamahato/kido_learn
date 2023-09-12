@@ -28,84 +28,88 @@ class _Level1ScreenState extends State<Level1Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor:Colors.pink[100],
-        body: Padding(
-            padding: const EdgeInsets.all(18),
-            child: PageView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              controller: _controller,
-              onPageChanged: (page) {
-                setState(() {
-                  isPressed = false;
-                });
-              },
-              itemCount: questions.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Text(
-                      "Question ${index + 1}/${questions.length}",
-                      style: GoogleFonts.actor(
-                          color: Color.fromARGB(255, 136, 91, 214),
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold),
-                    ),
+        backgroundColor: Colors.pink[100],
+        body: Center(
+          child: Padding(
+              padding: const EdgeInsets.all(18),
+              child: PageView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                controller: _controller,
+                onPageChanged: (page) {
+                  setState(() {
+                    isPressed = false;
+                  });
+                },
+                itemCount: questions.length,
+                itemBuilder: (context, index) {
+                  return Column(
 
-                    const Divider(
-                      color: Colors.white,
-                      height: 8,
-                      thickness: 3,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
 
-                    const Text(
-                      "Choose the Correct one",
-                      style: TextStyle(fontSize: 25,color: Colors.white),
-                    ),
-                    //question
-                    Image.asset(
-                      questions[index].question!,
-                      height: 80,
-                    ),
-                    //buttons for answer linst
-
-                    for (int i = 0; i < questions[index].answer!.length; i++)
-                      Answer(
-                          isPressed
-                              ? () {}
-                              : () {
-                                  
-                                  setState(() {
-                                    isPressed = true;
-                                  });
-                                  if (questions[
-                                          index] //this means simply if the answer is correct add 10 to score
-                                      .answer!
-                                      .entries
-                                      .toList()[i]
-                                      .value) {
-                                    score += 10;
-                                  }
-                                },
-                          questions[index].answer!.keys.toList()[i],
-                          isPressed
-                              ? questions[index]
-                                      .answer!
-                                      .entries
-                                      .toList()[i]
-                                      .value
-                                  ? isTrue
-                                  : isWrong
-                              : Colors.orange),
-
-                    const SizedBox(
-                      height: 20,
-                    ),
-
-                    OutlinedButton(
-                        onPressed: isPressed
+                      const SizedBox(height: 26,),
+                      Text(
+                        "Question ${index + 1}/${questions.length}",
+                        style: GoogleFonts.actor(
+                            color: Color.fromARGB(255, 136, 91, 214),
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold),
+                      ),
+        
+                      const Divider(
+                        color: Colors.white,
+                        height: 8,
+                        thickness: 3,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+        
+                      const Text(
+                        "Choose the Correct one",
+                        style: TextStyle(fontSize: 25, color: Color.fromARGB(255, 243, 39, 182)),
+                      ),
+                      //question
+                      Image.asset(
+                        questions[index].question!,
+                        height: 80,
+                      ),
+                      //buttons for answer linst
+        
+                      for (int i = 0; i < questions[index].answer!.length; i++)
+                        Answer(
+                            isPressed
+                                ? () {}
+                                : () {
+                                    setState(() {
+                                      isPressed = true;
+                                    });
+                                    if (questions[
+                                            index] //this means simply if the answer is correct add 10 to score
+                                        .answer!
+                                        .entries
+                                        .toList()[i]
+                                        .value) {
+                                      score += 10;
+                                    }
+                                  },
+                            questions[index].answer!.keys.toList()[i],
+                            isPressed
+                                ? questions[index]
+                                        .answer!
+                                        .entries
+                                        .toList()[i]
+                                        .value
+                                    ? isTrue
+                                    : isWrong
+                                : Colors.orange),
+        
+                      const SizedBox(
+                        height: 20,
+                      ),
+        
+                      GestureDetector(
+                        onTap: isPressed
                             ? index + 1 == questions.length
                                 ? () {
                                     setState(() {
@@ -121,16 +125,26 @@ class _Level1ScreenState extends State<Level1Screen> {
                                         curve: Curves.bounceIn);
                                   }
                             : null,
-                        child: Text(
-                          index + 1 == questions.length
-                              ? "See Results"
-                              : "Next Questions",
-                          style: const TextStyle(
-                              fontSize: 30, color: Colors.white),
-                        ))
-                  ],
-                );
-              },
-            )));
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                              color: Colors.deepPurpleAccent,),
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              index + 1 == questions.length
+                                  ? "See Results"
+                                  : "Next Questions",
+                              style: const TextStyle(
+                                  fontSize: 27, color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  );
+                },
+              )),
+        ));
   }
 }
