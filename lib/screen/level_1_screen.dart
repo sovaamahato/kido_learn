@@ -14,9 +14,9 @@ class Level1Screen extends StatefulWidget {
 }
 
 class _Level1ScreenState extends State<Level1Screen> {
-  var _questionIndex = 0;
+  final _questionIndex = 0;
 
-  PageController? _controller = PageController(initialPage: 0);
+  final PageController _controller = PageController(initialPage: 0);
   //setting game variables
   bool isPressed = false;
   Color isTrue = Colors.green;
@@ -51,7 +51,7 @@ class _Level1ScreenState extends State<Level1Screen> {
                       Text(
                         "Question ${index + 1}/${questions.length}",
                         style: GoogleFonts.actor(
-                            color: Color.fromARGB(255, 136, 91, 214),
+                            color: const Color.fromARGB(255, 136, 91, 214),
                             fontSize: 25,
                             fontWeight: FontWeight.bold),
                       ),
@@ -120,8 +120,8 @@ class _Level1ScreenState extends State<Level1Screen> {
                                     });
                                   }
                                 : () {
-                                    _controller!.nextPage(
-                                        duration: Duration(milliseconds: 80),
+                                    _controller.nextPage(
+                                        duration: const Duration(milliseconds: 80),
                                         curve: Curves.bounceIn);
                                   }
                             : null,

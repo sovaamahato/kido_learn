@@ -9,7 +9,7 @@ class Result extends StatefulWidget {
   //const Result({required this.choosenAnswers});
 
   final int score;
-  Result(this.score);
+  const Result(this.score, {super.key});
 
   @override
   State<Result> createState() => _ResultState();
@@ -38,7 +38,7 @@ class _ResultState extends State<Result> {
   Widget build(BuildContext context) {
     return Stack(children: [
       Scaffold(
-        backgroundColor: Color.fromARGB(255, 253, 179, 204),
+        backgroundColor: const Color.fromARGB(255, 253, 179, 204),
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(10.0),
@@ -69,16 +69,28 @@ class _ResultState extends State<Result> {
           ),
         ),
       ),
+      // ConfettiWidget(
+      //   emissionFrequency: 0.05,
+      //   numberOfParticles: 100,
+      //   colors: const [
+      //     Colors.red,
+      //     Colors.green,
+      //     Colors.yellow,
+      //   ],
+      //   confettiController: _controller,
+      //   blastDirection: pi / 2,
+      // ),
       ConfettiWidget(
         emissionFrequency: 0.05,
         numberOfParticles: 100,
         colors: const [
           Colors.red,
-          Colors.green,
+          Colors.blue,
           Colors.yellow,
+          
         ],
         confettiController: _controller,
-        blastDirection: pi / 2,
+        blastDirection: -(pi / 4),
       )
     ]);
   }
