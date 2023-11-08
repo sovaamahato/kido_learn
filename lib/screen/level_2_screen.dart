@@ -14,7 +14,17 @@ class _Level2ScreenState extends State<Level2Screen> {
       appBar: AppBar(
         title: const Text("Level 2"),
       ),
+      body: Center(
+        child: Column(children: [
+            Container(height: 400,width: double.infinity,color: Colors.amber,
+            
+            ),
       
+            Container(height: 400,width: double.infinity,color: const Color.fromARGB(255, 83, 69, 27),
+            ),
+      
+        ]),
+      ),
     );
   }
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kido_learn/components/answer.dart';
+import 'package:kido_learn/components/level1_ko_compo/answer.dart';
 
-import '../components/questions_list.dart';
+import '../components/level1_ko_compo/questions_list.dart';
 
-import '../components/result.dart';
+import '../components/level1_ko_compo/result.dart';
 
 class Level1Screen extends StatefulWidget {
   const Level1Screen({super.key});

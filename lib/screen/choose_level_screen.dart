@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kido_learn/components/my_card.dart';
+import 'package:kido_learn/components/level1_ko_compo/my_card.dart';
 
 import 'level_1_screen.dart';
 import 'level_2_screen.dart';
