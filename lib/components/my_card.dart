@@ -11,7 +11,7 @@ class MyCard extends StatefulWidget {
    Function()? selectLevel;
    
    
-  MyCard({required this.color,required this.text,required this.selectLevel,});
+  MyCard({super.key, required this.color,required this.text,required this.selectLevel,});
 
   @override
   State<MyCard> createState() => _MyCardState();
@@ -39,7 +39,7 @@ class _MyCardState extends State<MyCard> {
     return GestureDetector(
       onTap: widget.selectLevel,
       child: TweenAnimationBuilder(
-          duration: Duration(seconds: 2), // The duration of each animation.
+          duration: const Duration(seconds: 2), // The duration of each animation.
           tween: Tween<double>(begin: 0, 
           end: _moveRight ? _movementDistance : 0),
           builder: (BuildContext context, double value, Widget? child) {

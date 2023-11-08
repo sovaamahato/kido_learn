@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
               top: MediaQuery.of(context).size.height * .30,
               child: Stack(
                 children: [
-                  Container(
+                  SizedBox(
                       height: 490,
                       width: 320,
                       child: Image.asset(
@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                         padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
-                            color: Color.fromARGB(255, 18, 67, 107)),
+                            color: const Color.fromARGB(255, 18, 67, 107)),
                         child: Text(
                           "START NOW",
                           style: GoogleFonts.acme(

@@ -8,7 +8,7 @@ class Answer extends StatefulWidget {
   var answerText;
   Color btnColor;
 
-   Answer(this.selectAnswer, this.answerText, this.btnColor);
+   Answer(this.selectAnswer, this.answerText, this.btnColor, {super.key});
 
   @override
   State<Answer> createState() => _AnswerState();
@@ -41,7 +41,7 @@ class _AnswerState extends State<Answer> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child:TweenAnimationBuilder(
-          duration: Duration(seconds: 2), // The duration of each animation.
+          duration: const Duration(seconds: 2), // The duration of each animation.
           tween: Tween<double>(begin: 0, 
           end: _moveRight ? _movementDistance : 0),
           builder: (BuildContext context, double value, Widget? child) {
@@ -49,11 +49,11 @@ class _AnswerState extends State<Answer> {
             return Transform.translate(
               offset: Offset(value, 0),
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           width: double.infinity,
           decoration: BoxDecoration(color: widget.btnColor,
           borderRadius: BorderRadius.circular(14)),
-          child: Center(child: Text(widget.answerText,style: TextStyle(fontSize: 20),)),
+          child: Center(child: Text(widget.answerText,style: const TextStyle(fontSize: 20),)),
           
           
           // child:ElevatedButton(
